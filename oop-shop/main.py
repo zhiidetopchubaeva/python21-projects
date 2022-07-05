@@ -1,11 +1,12 @@
+from nis import cat
+from shop.models import Product, Category
+from shop.serializers import ProductSerializer
 
-from models import User, Product, Comment
+cat = Category("phones")
+obj1 = Product("iphone 10", 234, "...", 3, cat)
+obj2 = Product("iphone 11", 200, "...", 10, cat)
+obj3 = Product("iphone 13", 239, "...", 5, cat)
 
-user1 = User("test@gmail.com", "hello", "female")
-user1.register("123456789", "123456789")
-user1.login("123456789")
-
-product1 = Product("Iphone 10", 12345, "...", 10)
-
-comment1 = Comment(user1, product1, "Оч классный телефон")
-print(comment1)
+res = ProductSerializer().serialize_queryset([obj1, obj2, obj3])
+from pprint import pprint # для вывода в строку
+pprint(res)
