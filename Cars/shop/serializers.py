@@ -1,20 +1,14 @@
 from abstract.serializers import BaseSerializer
 
-from .models import Category, Product, Comment
+from .models import Cars, Comment
 
-class CategorySerializer(BaseSerializer):
+class CarsSerializer(BaseSerializer):
     class Meta:
-        fields = ["title"]
-        queryset = Category.objects
-
-class ProductSerializer(BaseSerializer):
-    class Meta:
-        fields = ["id","title", "price", "desc", "quantity", "category", "comments"]
-        queryset = Product.objects
+        fields = ["id","brand", "model","year" , "engine_volume", "color", "body_type", "mileage", "price", "comments"]
+        queryset = Cars.objects
     
     def serialize_obj(self, obj):
         dict_ = super().serialize_obj(obj)
-        dict_["category"] = obj.category.title
         dict_["comments"] = CommentSerializer().serialize_queryset(obj)
     
         return dict_

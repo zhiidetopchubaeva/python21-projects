@@ -48,3 +48,4 @@ def write_to_db(name, data):
     with open(name, "w", encoding='utf8') as file:
         json.dump(data, file, ensure_ascii=False)
         
+    
