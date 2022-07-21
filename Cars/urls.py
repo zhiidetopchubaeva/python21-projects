@@ -2,7 +2,7 @@ from shop.views import *
 from account.views import *
 
 urlpatterns = [
-    ('car/', car_listing),
+    ('cars/', car_listing),
     ('car-create/', car_create),
     ('car-retrieve/id', car_retrieve),
     ('car-update/id', car_update),
