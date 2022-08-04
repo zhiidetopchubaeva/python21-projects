@@ -1,4 +1,4 @@
-from .models import Cars
+from models import Cars
 
 class Views:
     def cars_create(self):
@@ -20,7 +20,7 @@ class Views:
 # print(Views.cars_create(Views))
 
     def listing():
-        for i in Cars.info:     
+        for i in Cars.list_:     
             print('\n'.join((
                 f"ID - {i['id']}",
                 f"Марка - {i['brand']}",
@@ -61,7 +61,7 @@ class Views:
         for i in Cars.list_:
             list_.append(i['id'])
         if num_choice_auto in list_:
-            num_choice_param = int(input('Для того, чтобы изменит параметры описания выберите цифру:\nМарка - 1\nМодель - 2\nГод выпуска - 3\nОбъем двигателя - 4\nЦвет - 5\nТип кузова - 6\nПробег - 7\nЦена - 8\n'))
+            num_choice_param = int(input('Для того, чтобы изменить параметры описания выберите цифру:\nМарка - 1\nМодель - 2\nГод выпуска - 3\nОбъем двигателя - 4\nЦвет - 5\nТип кузова - 6\nПробег - 7\nЦена - 8\n'))
             print(num_choice_param == 1)
             if num_choice_param in [1, 2, 3, 4, 5, 6, 7, 8]:
                 if num_choice_param == 1:
@@ -88,10 +88,12 @@ class Views:
     def delete():
         num = int(input('Введите id автомобиля для удаления: '))
         list_ = []
-        for i in Cars.info:
+        for i in Cars.list_:
             list_.append(i['id'])
         if num in list_:
-            Cars.info.pop(num)
+            Cars.list_.pop(num)
         else:
             raise Exception('Нет такого id в базе данных')
-            
+
+
+   

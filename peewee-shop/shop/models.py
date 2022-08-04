@@ -15,4 +15,4 @@ class Comment(BaseModel):
     body = peewee.TextField()
     created_at = peewee.DateTimeField()
 
-Product.create(category='fruit', title='mango', price=255, description='fffffffff')
+# Product.create(category='fruit', title='mango', price=255, description='fffffffff')
